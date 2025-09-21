@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Azhan — Portfolio</title>
+  <meta name="description" content="Azhan — Creative Graphic Designer & Frontend Developer. Portfolio showcasing projects, skills and contact." />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#0f1724;
+      --muted:#94a3b8;
+      --accent:#06b6d4;
+      --accent-2:#7c3aed;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      --max-w:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
+      background: linear-gradient(180deg,#071127 0%, #041025 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      justify-content:center;
+      padding:32px;
+    }
+    .wrap{
+      width:100%;
+      max-width:var(--max-w);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;
+      padding:28px;
+      box-shadow: 0 10px 40px rgba(2,6,23,0.7);
+    }
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{
+      width:54px; height:54px; border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; color:#041025; font-size:20px;
+    }
+    .brand h1{margin:0; font-size:16px}
+    nav{display:flex; gap:12px; align-items:center;}
+    nav a{color:var(--muted); text-decoration:none; font-size:14px; padding:8px;border-radius:8px}
+    nav a:hover{color:#fff; background:rgba(255,255,255,0.02)}
+    .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#041025; padding:8px 12px; border-radius:10px; font-weight:700;}
+    /* hero */
+    .hero{display:grid; grid-template-columns:1fr 360px; gap:28px; align-items:center; margin-bottom:24px;}
+    @media (max-width:980px){ .hero{grid-template-columns:1fr;}}
+    .hero-left h2{margin:0;font-size:28px}
+    .hero-left p{color:var(--muted); margin:12px 0 18px}
+    .hero-actions{display:flex; gap:12px; align-items:center}
+    .btn{padding:10px 14px; border-radius:10px; border:0; cursor:pointer; font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#041025}
+    .btn-ghost{background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.03)}
+    /* card right */
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      padding:16px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .avatar{width:100%; height:230px; border-radius:10px; background:linear-gradient(135deg,#223  , #345); display:flex; align-items:center; justify-content:center; font-size:28px; color:#fff}
+    .meta{margin-top:12px; display:flex; gap:10px; flex-direction:column}
+    .meta .row{display:flex; gap:8px; align-items:center}
+    .chip{background:rgba(255,255,255,0.03); padding:6px 10px; border-radius:8px; color:var(--muted); font-size:13px}
+    /* projects */
+    section{margin-top:22px}
+    h3.section-title{margin:0 0 12px 0; font-size:18px}
+    .projects{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    @media (max-width:1000px){ .projects{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){ .projects{grid-template-columns:1fr}}
+    .project{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:14px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); cursor:pointer; transition:transform .18s, box-shadow .18s}
+    .project:hover{transform:translateY(-6px); box-shadow: 0 12px 30px rgba(2,6,23,0.6)}
+    .project .thumb{height:140px; border-radius:8px; background:linear-gradient(90deg,#233, #345); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700}
+    .project .p-title{margin:10px 0 6px; font-weight:700}
+    .project .p-desc{color:var(--muted); font-size:13px}
+    /* skills */
+    .skills{display:flex; gap:8px; flex-wrap:wrap}
+    .skill{background:linear-gradient(90deg,var(--accent),var(--accent-2)); padding:8px 12px; border-radius:999px; font-weight:700; color:#041025; font-size:13px}
+    /* contact */
+    .contact-grid{display:grid; grid-template-columns:1fr 360px; gap:18px}
+    @media (max-width:980px){ .contact-grid{grid-template-columns:1fr}}
+    form .field{display:flex; flex-direction:column; margin-bottom:12px}
+    input, textarea{padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04); background:transparent; color:#e6eef8; outline:none}
+    textarea{min-height:120px; resize:vertical}
+    .note{color:var(--muted); font-size:13px}
+    footer{margin-top:18px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.02); color:var(--muted); font-size:13px}
+    /* modal */
+    .modal-backdrop{position:fixed; inset:0; background:rgba(2,6,23,0.7); display:none; align-items:center; justify-content:center; z-index:40}
+    .modal{width:90%; max-width:760px; background:var(--card); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03)}
+    .modal .close{float:right; cursor:pointer; opacity:0.8}
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .center{display:flex; align-items:center; justify-content:center}
+  </style>
+</head>
+<body>
+  <main class="wrap" id="top">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">A</div>
+        <div>
+          <h1>Azhan</h1>
+          <div class="muted" style="font-size:13px">Graphic Designer • Frontend Dev</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#contact">Hire Me</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <h2 id="hero-title">Hi, I'm Azhan — I design beautiful visuals and build elegant frontends.</h2>
+        <p class="muted">I help brands stand out with clean design, strong UX and fast, accessible code. I focus on results: conversion, clarity and brand voice.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Work with me</a>
+          <a class="btn btn-ghost" href="#" id="downloadResume">Download Resume</a>
+        </div>
+
+        <div style="margin-top:18px">
+          <h3 class="section-title">Featured Work</h3>
+          <div style="display:flex; gap:10px; margin-top:10px; flex-wrap:wrap">
+            <div class="chip">Brand Identity</div>
+            <div class="chip">UI Design</div>
+            <div class="chip">Web Animations</div>
+            <div class="chip">SEO Friendly</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card" aria-label="Profile card">
+        <div class="avatar">AZ</div>
+        <div class="meta">
+          <div class="row"><strong>Azhan</strong> <span class="muted">• Designer & Dev</span></div>
+          <div class="row"><span class="chip">Location</span><span class="muted">Karachi, PK</span></div>
+          <div class="row"><span class="chip">Email</span><span class="muted">azhan@example.com</span></div>
+          <div style="display:flex; gap:8px; margin-top:10px">
+            <a class="chip" href="#" aria-label="Behance">Behance</a>
+            <a class="chip" href="#" aria-label="Dribbble">Dribbble</a>
+            <a class="chip" href="#" aria-label="GitHub">GitHub</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" aria-labelledby="projects-title">
+      <h3 id="projects-title" class="section-title">Projects</h3>
+      <div class="projects" id="projectsGrid">
+        <!-- Project items (replace content) -->
+        <article class="project" data-title="Brand Refresh" data-desc="A full brand identity rebuild for a local startup. Logo, color system and marketing assets." data-img="">
+          <div class="thumb">BRAND</div>
+          <div class="p-title">Brand Refresh</div>
+          <div class="p-desc muted">Identity • Logo • Marketing</div>
+        </article>
+
+        <article class="project" data-title="Portfolio Website" data-desc="Responsive portfolio built with modern HTML/CSS and small JS for interactivity." data-img="">
+          <div class="thumb">SITE</div>
+          <div class="p-title">Portfolio Website</div>
+          <div class="p-desc muted">Web • Frontend</div>
+        </article>
+
+        <article class="project" data-title="Mobile App UI" data-desc="Design system and screens for a fintech mobile app — Figma to prototype." data-img="">
+          <div class="thumb">APP</div>
+          <div class="p-title">Mobile App UI</div>
+          <div class="p-desc muted">UI/UX • Prototype</div>
+        </article>
+
+        <!-- add more project cards as needed -->
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" aria-labelledby="skills-title">
+      <h3 id="skills-title" class="section-title">Skills</h3>
+      <div style="display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap">
+        <div style="flex:1; min-width:260px">
+          <p class="muted">Design & Tools</p>
+          <div class="skills" aria-hidden="false">
+            <span class="skill">Adobe XD</span>
+            <span class="skill">Figma</span>
+            <span class="skill">Photoshop</span>
+            <span class="skill">Illustrator</span>
+          </div>
+        </div>
+        <div style="flex:1; min-width:260px">
+          <p class="muted">Frontend</p>
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS / SCSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">React</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-title" style="margin-top:20px">
+      <h3 id="contact-title" class="section-title">Contact</h3>
+      <div class="contact-grid">
+        <form id="contactForm" class="card" onsubmit="return false" aria-label="Contact form">
+          <div class="field">
+            <label for="cname">Full name</label>
+            <input id="cname" required placeholder="Your full name" />
+          </div>
+          <div class="field">
+            <label for="cemail">Email</label>
+            <input id="cemail" type="email" required placeholder="you@example.com" />
+          </div>
+          <div class="field">
+            <label for="cmessage">Message</label>
+            <textarea id="cmessage" required placeholder="How can I help you?"></textarea>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center; justify-content:space-between">
+            <div class="note muted">I reply within 24–48 hours.</div>
+            <button class="btn btn-primary" id="sendBtn" onclick="submitContact()">Send Message</button>
+          </div>
+          <div id="formStatus" class="muted" style="margin-top:10px"></div>
+        </form>
+
+        <aside class="card">
+          <h4 style="margin-top:0">Get in touch</h4>
+          <p class="muted">Email: <a href="mailto:azhan@example.com">azhan@example.com</a></p>
+          <p class="muted">Location: Karachi, Pakistan</p>
+
+          <div style="margin-top:12px">
+            <strong>Availability</strong>
+            <div class="muted">Freelance · Full-time · Remote</div>
+          </div>
+
+          <div style="margin-top:18px">
+            <strong>Resume</strong>
+            <div class="muted"><a href="#" id="resumeLink">Download PDF</a></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="center">
+      <div style="width:100%; max-width:900px; text-align:center; padding-top:18px">
+        <div class="muted">© <span id="year"></span> Azhan — Built with care • <a href="#top">Back to top</a></div>
+      </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="modal" class="modal-backdrop" role="dialog" aria-hidden="true">
+      <div class="modal" role="document">
+        <div class="close" onclick="closeModal()" aria-label="Close">✕</div>
+        <h3 id="modalTitle">Project title</h3>
+        <div id="modalImg" style="height:220px; border-radius:8px; background:linear-gradient(90deg,#223,#345); margin:12px 0"></div>
+        <p id="modalDesc" class="muted">Project description</p>
+        <div style="display:flex; gap:12px; margin-top:12px">
+          <a class="chip" href="#" id="modalLive">View Live</a>
+          <a class="chip" href="#" id="modalCode">Source</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // small helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // project modal logic
+    const projects = document.querySelectorAll('.project');
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+
+    projects.forEach(p => {
+      p.addEventListener('click', () => {
+        modalTitle.textContent = p.dataset.title || 'Project';
+        modalDesc.textContent = p.dataset.desc || 'No description';
+        modal.style.display = 'flex';
+        modal.setAttribute('aria-hidden','false');
+      });
+    });
+    function closeModal(){
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+    }
+    modal.addEventListener('click', (e)=> {
+      if(e.target === modal) closeModal();
+    });
+
+    // smooth scroll for nav
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const href = a.getAttribute('href');
+        if(!href || href === '#') return;
+        const el = document.querySelector(href);
+        if(el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // contact form fake submit (replace with real endpoint e.g. Formspree / Netlify functions)
+    function submitContact(){
+      const name = document.getElementById('cname').value.trim();
+      const email = document.getElementById('cemail').value.trim();
+      const msg = document.getElementById('cmessage').value.trim();
+      const status = document.getElementById('formStatus');
+      if(!name || !email || !msg){ status.textContent = 'Please complete the form.'; return; }
+      status.textContent = 'Sending...';
+      // simulate network
+      setTimeout(()=>{
+        status.textContent = 'Message sent — I will contact you within 24–48 hours. Thank you!';
+        // clear fields optionally
+        document.getElementById('cname').value=''; document.getElementById('cemail').value=''; document.getElementById('cmessage').value='';
+      }, 900);
+    }
+
+    // optional: wire resume download & external links
+    document.getElementById('downloadResume').addEventListener('click', (e)=>{
+      e.preventDefault();
+      // replace this URL with your resume file on your hosting (Netlify/GDrive/Public link)
+      const url = '#';
+      if(url === '#'){ alert('Replace the resume URL in the code with your actual resume file link.'); return; }
+      window.open(url,'_blank');
+    });
+  </script>
+</body>
+</html>
